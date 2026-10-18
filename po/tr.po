@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mate-wacom 0.1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-18 09:09-0700\n"
+"POT-Creation-Date: 2026-10-18 11:42-0700\n"
 "PO-Revision-Date: 2026-10-18 09:10-0700\n"
 "Last-Translator: Kerem Söke\n"
 "Language-Team: Turkish\n"
@@ -16,612 +16,646 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/main.vala:17
+#: src/main.vala:19
 msgid "Graphics Tablet"
 msgstr "Çizim Tableti"
 
-#: src/main.vala:25
+#: src/main.vala:27
 msgid "Tablet device"
 msgstr "Tablet aygıtı"
 
-#: src/main.vala:29
+#: src/main.vala:31
 msgid "Refresh connected devices"
 msgstr "Bağlı aygıtları yenile"
 
-#: src/main.vala:59
+#: src/main.vala:61
 msgid "_File"
 msgstr "_Dosya"
 
-#: src/main.vala:62
+#: src/main.vala:64
 msgid "_Refresh Devices"
 msgstr "_Aygıtları Yenile"
 
-#: src/main.vala:63
+#: src/main.vala:65
 msgid "_Quit"
 msgstr "_Çıkış"
 
-#: src/main.vala:65
+#: src/main.vala:67
 msgid "_Tools"
 msgstr "_Araçlar"
 
-#: src/main.vala:68
+#: src/main.vala:70
 msgid "_Test Tablet…"
 msgstr "_Tableti Sına…"
 
-#: src/main.vala:69
+#: src/main.vala:71
 msgid "_Reset Current Tool…"
 msgstr "_Geçerli Aracı Sıfırla…"
 
-#: src/main.vala:71
+#: src/main.vala:73
 msgid "_Help"
 msgstr "_Yardım"
 
-#: src/main.vala:74
+#: src/main.vala:76
 msgid "_About"
 msgstr "_Hakkında"
 
-#: src/main.vala:78
+#: src/main.vala:80
 msgid "MATE Graphics Tablet"
 msgstr "MATE Çizim Tableti"
 
-#: src/main.vala:79
+#: src/main.vala:81
 msgid "Configure Wacom X11 driver settings."
 msgstr "Wacom X11 sürücüsünü yapılandırın."
 
-#: src/main.vala:136
+#: src/main.vala:138
 msgid "Stylus"
 msgstr "Kalem"
 
-#: src/main.vala:137
+#: src/main.vala:139
 msgid "Eraser"
 msgstr "Silgi"
 
-#: src/main.vala:138
+#: src/main.vala:140
 msgid "Cursor"
 msgstr "İmleç"
 
-#: src/main.vala:139 src/main.vala:189
+#: src/main.vala:141 src/main.vala:191
 msgid "Pad"
 msgstr "Tuş takımı"
 
-#: src/main.vala:140 src/main.vala:190 src/main.vala:541
+#: src/main.vala:142 src/main.vala:192 src/main.vala:656
 msgid "Touch"
 msgstr "Dokunma"
 
-#: src/main.vala:177
-msgid "No Wacom X11 tablet was detected. Connect a tablet and choose File → Refresh Devices."
-msgstr "Wacom X11 tableti algılanmadı. Bir tablet bağlayıp Dosya → Aygıtları Yenile seçeneğini kullanın."
+#: src/main.vala:179
+msgid ""
+"No Wacom X11 tablet was detected. Connect a tablet and choose File → Refresh "
+"Devices."
+msgstr ""
+"Wacom X11 tableti algılanmadı. Bir tablet bağlayıp Dosya → Aygıtları Yenile "
+"seçeneğini kullanın."
 
-#: src/main.vala:178
+#: src/main.vala:180
 msgid "No tablet detected"
 msgstr "Tablet algılanmadı"
 
-#: src/main.vala:178
-msgid "The Wacom X11 driver must expose the device to xsetwacom. This dialog works in an X11 session."
-msgstr "Wacom X11 sürücüsünün cihazı xsetwacom'a tanıtması gerekir. Bu pencere sadece X11 oturumunda çalışabilir."
+#: src/main.vala:180
+msgid ""
+"The Wacom X11 driver must expose the device to xsetwacom. This dialog works "
+"in an X11 session."
+msgstr ""
+"Cihazın Wacom X11 sürücüsü tarafından xsetwacom'a tanıtılması gerekir. Bu pencere "
+"sadece X11 oturumunda çalışabilir."
 
-#: src/main.vala:179
+#: src/main.vala:181
 msgid "Refresh Devices"
 msgstr "Aygıtları Yenile"
 
-#: src/main.vala:182
+#: src/main.vala:184
 msgid "Tablet"
 msgstr "Tablet"
 
-#: src/main.vala:184
+#: src/main.vala:186
 #, c-format
 msgid "Changes apply immediately to the selected %s tool."
 msgstr "Değişiklikler, seçili %s aracına hemen uygulanır."
 
-#: src/main.vala:185
+#: src/main.vala:187
 msgid "Overview"
 msgstr "Genel Bakış"
 
-#: src/main.vala:186
+#: src/main.vala:188
 msgid "Mapping"
 msgstr "Eşleme"
 
-#: src/main.vala:188
+#: src/main.vala:190
 msgid "Pen"
 msgstr "Kalem"
 
-#: src/main.vala:191 src/main.vala:563
+#: src/main.vala:193 src/main.vala:678
 msgid "Profiles"
 msgstr "Profiller"
 
-#: src/main.vala:197
+#: src/main.vala:199
 msgid "Tablet overview"
 msgstr "Tablete genel bakış"
 
-#: src/main.vala:197
-msgid "Choose a device above to configure its individual pen, eraser, pad, or touch tool."
-msgstr "Kalem, silgi, tuş takımı veya dokunma aracını yapılandırmak için yukarıdan bir aygıt seçin."
+#: src/main.vala:199
+msgid ""
+"Choose a device above to configure its individual pen, eraser, pad, or touch "
+"tool."
+msgstr ""
+"Kalem, silgi, tuş takımı veya dokunma aracını yapılandırmak için yukarıdan "
+"bir aygıt seçin."
 
-#: src/main.vala:198
+#: src/main.vala:200
 msgid "Connected tools"
 msgstr "Bağlı araçlar"
 
-#: src/main.vala:207
+#: src/main.vala:209
 msgid "Test Tablet…"
 msgstr "Tableti Sına…"
 
-#: src/main.vala:256
+#: src/main.vala:258
 msgid "Screen and tablet mapping"
 msgstr "Ekran ve tablet eşlemesi"
 
-#: src/main.vala:256
-msgid "Set tracking, screen output, orientation, and the active area of this tool."
-msgstr "Bu aracın izleme biçimini, ekran çıkışını, yönünü ve etkin alanını ayarlayın."
+#: src/main.vala:258
+msgid ""
+"Set tracking, screen output, orientation, and the active area of this tool."
+msgstr ""
+"Bu aracın izleme biçimini, ekran çıkışını, yönünü ve etkin alanını ayarlayın."
 
-#: src/main.vala:257
+#: src/main.vala:259
 msgid "Tracking"
 msgstr "İzleme"
 
-#: src/main.vala:258 src/main.vala:544
+#: src/main.vala:260 src/main.vala:659
 msgid "Tracking mode"
 msgstr "İzleme biçimi"
 
-#: src/main.vala:258
+#: src/main.vala:260
 msgid "Pen (absolute)"
 msgstr "Kalem (mutlak)"
 
-#: src/main.vala:258
+#: src/main.vala:260
 msgid "Mouse (relative)"
 msgstr "Fare (göreli)"
 
-#: src/main.vala:259
+#: src/main.vala:261
 msgid "Orientation"
 msgstr "Yön"
 
-#: src/main.vala:260
+#: src/main.vala:262
 msgid "Normal"
 msgstr "Normal"
 
-#: src/main.vala:260
+#: src/main.vala:262
 msgid "Clockwise"
 msgstr "Saat yönünde"
 
-#: src/main.vala:260
+#: src/main.vala:262
 msgid "Upside down (left-handed)"
 msgstr "Baş aşağı (sol el için)"
 
-#: src/main.vala:260
+#: src/main.vala:262
 msgid "Counterclockwise"
 msgstr "Saat yönünün tersine"
 
-#: src/main.vala:262
+#: src/main.vala:264
 msgid "Display"
 msgstr "Ekran"
 
-#: src/main.vala:264
+#: src/main.vala:267
 msgid "Entire desktop"
 msgstr "Tüm masaüstü"
 
-#: src/main.vala:266
+#: src/main.vala:275
 #, c-format
 msgid "Custom: %s"
 msgstr "Özel: %s"
 
-#: src/main.vala:273 src/main.vala:544
+#: src/main.vala:282 src/main.vala:659
 msgid "Map to screen"
 msgstr "Ekrana eşle"
 
-#: src/main.vala:273
+#: src/main.vala:282
 msgid "Applies to the current X11 display layout."
 msgstr "Geçerli X11 ekran düzenine uygulanır."
 
-#: src/main.vala:274
-msgid "Screen mappings are applied once. Reapply after changing the display layout."
-msgstr "Ekran eşlemeleri bir kez uygulanır. Ekran düzenini değiştirdikten sonra yeniden uygulayın."
+#: src/main.vala:283
+msgid ""
+"Screen mappings are applied once. Reapply after changing the display layout."
+msgstr ""
+"Ekran eşlemeleri bir kez uygulanır. Ekran düzenini değiştirdikten sonra "
+"yeniden uygulayın."
 
-#: src/main.vala:289
+#: src/main.vala:315
 msgid "Screen rectangle (W × H + X + Y)"
 msgstr "Ekran alanı (gen. × yük. + X + Y)"
 
-#: src/main.vala:290
+#: src/main.vala:316
 msgid "Maps to a custom X11 screen rectangle in pixels."
-msgstr "Tablet alanını X11 ekranında piksel olarak belirlediğiniz bir bölgeyle eşlertirir."
+msgstr ""
+"Tablet alanını X11 ekranında piksel olarak belirlediğiniz bir bölgeyle "
+"eşlertirir."
 
-#: src/main.vala:291
+#: src/main.vala:323
 msgid "Map to Rectangle"
 msgstr "Dikdörtgene Eşle"
 
-#: src/main.vala:299
+#: src/main.vala:326
 msgid "Active tablet area"
 msgstr "Etkin tablet alanı"
 
-#: src/main.vala:302
+#: src/main.vala:336
+msgid "Keep the screen rectangle's aspect ratio"
+msgstr "Ekrandaki seçili dikdörtgeninin en boy oranını koru"
+
+#: src/main.vala:339
 msgid "Left"
 msgstr "Sol"
 
-#: src/main.vala:302
+#: src/main.vala:339
 msgid "Top"
 msgstr "Üst"
 
-#: src/main.vala:302
+#: src/main.vala:339
 msgid "Right"
 msgstr "Sağ"
 
-#: src/main.vala:302
+#: src/main.vala:339
 msgid "Bottom"
 msgstr "Alt"
 
-#: src/main.vala:310
+#: src/main.vala:399
 msgid "Apply Area"
 msgstr "Alanı Uygula"
 
-#: src/main.vala:313
-msgid "Right and bottom must be greater than left and top."
-msgstr "Sağ ve alt, sol ve üstten büyük olmalıdır."
-
-#: src/main.vala:320
+#: src/main.vala:402
 msgid "Use Full Tablet"
 msgstr "Tabletin Tamamını Kullan"
 
-#: src/main.vala:323
+#: src/main.vala:409
 msgid "Fit Area to Screen"
 msgstr "Alanı Ekrana Uydur"
 
-#: src/main.vala:324
-msgid "Crop the current tablet area to the selected screen's aspect ratio."
-msgstr "Geçerli tablet alanını seçili ekranın en boy oranına göre kırpın."
+#: src/main.vala:410
+msgid ""
+"Crop the current tablet area to the screen rectangle's aspect ratio, keeping "
+"it centered."
+msgstr ""
+"Geçerli tablet alanını ekrandaki seçili dikdörtgeninin en boy oranına göre "
+"kırpın ve ortada tutun."
 
-#: src/main.vala:328
-msgid "Could not read the selected screen size."
-msgstr "Seçili ekranın boyutu okunamadı."
-
-#: src/main.vala:333
-msgid "Set a valid tablet area first."
-msgstr "Önce geçerli bir tablet alanı ayarlayın."
-
-#: src/main.vala:355
+#: src/main.vala:470
 msgid "Pen and eraser"
 msgstr "Kalem ve silgi"
 
-#: src/main.vala:355
-msgid "Pressure, side buttons, and filtering are configured for the selected tool."
+#: src/main.vala:470
+msgid ""
+"Pressure, side buttons, and filtering are configured for the selected tool."
 msgstr "Basınç, yan tuşlar ve filtreleme seçili araç için yapılandırılır."
 
-#: src/main.vala:356
+#: src/main.vala:471
 msgid "Pressure"
 msgstr "Basınç"
 
-#: src/main.vala:357
+#: src/main.vala:472
 msgid "Tip threshold"
 msgstr "Uç eşiği"
 
-#: src/main.vala:358
+#: src/main.vala:473
 msgid "Minimum pressure that produces a tip click (driver scale 0–2047)."
 msgstr "Uç tıklaması oluşturan en düşük basınç (sürücü ölçeği 0–2047)."
 
-#: src/main.vala:359
+#: src/main.vala:474
 msgid "Pressure recalibration"
 msgstr "Basıncı yeniden kalibre et"
 
-#: src/main.vala:360
+#: src/main.vala:475
 msgid "Edit Pressure Curve…"
 msgstr "Basınç Eğrisini Düzenle…"
 
-#: src/main.vala:362
+#: src/main.vala:477
 msgid "Pressure curve"
 msgstr "Basınç eğrisi"
 
-#: src/main.vala:365
+#: src/main.vala:480
 msgid "Stylus buttons"
 msgstr "Kalem tuşları"
 
-#: src/main.vala:366 src/main.vala:526
+#: src/main.vala:481 src/main.vala:641
 #, c-format
 msgid "Button %d"
 msgstr "Tuş %d"
 
-#: src/main.vala:367
+#: src/main.vala:482
 msgid "Buttons require tablet contact"
 msgstr "Tuşlar tabletle temas gerektirsin"
 
-#: src/main.vala:369
+#: src/main.vala:484
 msgid "Motion filtering"
 msgstr "Hareket filtreleme"
 
-#: src/main.vala:370
+#: src/main.vala:485
 msgid "Raw sample count"
 msgstr "Ham örnek sayısı"
 
-#: src/main.vala:371
+#: src/main.vala:486
 msgid "Suppress distance"
 msgstr "Bastırma mesafesi"
 
-#: src/main.vala:372
+#: src/main.vala:487
 msgid "Pan scroll threshold"
 msgstr "Kaydırma eşiği"
 
-#: src/main.vala:374
+#: src/main.vala:489
 msgid "Cursor proximity"
 msgstr "İmleç yakınlığı"
 
-#: src/main.vala:375
+#: src/main.vala:490
 msgid "Tool identity"
 msgstr "Araç kimliği"
 
-#: src/main.vala:379
+#: src/main.vala:494
 msgid "Bind to tool serial"
 msgstr "Araç seri numarasına bağla"
 
-#: src/main.vala:379
+#: src/main.vala:494
 msgid "0 accepts any tool of this type."
 msgstr "0, bu türdeki tüm araçları kabul eder."
 
-#: src/main.vala:380
+#: src/main.vala:495
 msgid "Apply Serial"
 msgstr "Seri Numarasını Uygula"
 
-#: src/main.vala:384
+#: src/main.vala:499
 msgid "Enter a numeric serial number or 0."
 msgstr "Sayısal bir seri numarası veya 0 girin."
 
-#: src/main.vala:393
+#: src/main.vala:508
 msgid "Pressure Curve"
 msgstr "Basınç Eğrisi"
 
-#: src/main.vala:394 src/main.vala:467 src/main.vala:603
+#: src/main.vala:509 src/main.vala:582 src/main.vala:718
 msgid "_Cancel"
 msgstr "_İptal"
 
-#: src/main.vala:395 src/main.vala:468
+#: src/main.vala:510 src/main.vala:583
 msgid "_Apply"
 msgstr "_Uygula"
 
-#: src/main.vala:399
+#: src/main.vala:514
 msgid "Control point 1 X"
 msgstr "Kontrol noktası 1 X"
 
-#: src/main.vala:399
+#: src/main.vala:514
 msgid "Control point 1 Y"
 msgstr "Kontrol noktası 1 Y"
 
-#: src/main.vala:399
+#: src/main.vala:514
 msgid "Control point 2 X"
 msgstr "Kontrol noktası 2 X"
 
-#: src/main.vala:399
+#: src/main.vala:514
 msgid "Control point 2 Y"
 msgstr "Kontrol noktası 2 Y"
 
-#: src/main.vala:441
+#: src/main.vala:556
 msgid "Choose action…"
 msgstr "Eylem seç…"
 
-#: src/main.vala:449
+#: src/main.vala:564
 msgid "Ring up"
 msgstr "Halka yukarı"
 
-#: src/main.vala:450
+#: src/main.vala:565
 msgid "Ring down"
 msgstr "Halka aşağı"
 
-#: src/main.vala:451
+#: src/main.vala:566
 msgid "Second ring up"
 msgstr "İkinci halka yukarı"
 
-#: src/main.vala:452
+#: src/main.vala:567
 msgid "Second ring down"
 msgstr "İkinci halka aşağı"
 
-#: src/main.vala:453
+#: src/main.vala:568
 msgid "Dial clockwise"
 msgstr "Kadran saat yönünde"
 
-#: src/main.vala:454
+#: src/main.vala:569
 msgid "Dial counterclockwise"
 msgstr "Kadran saat yönünün tersine"
 
-#: src/main.vala:455
+#: src/main.vala:570
 msgid "Second dial clockwise"
 msgstr "İkinci kadran saat yönünde"
 
-#: src/main.vala:456
+#: src/main.vala:571
 msgid "Second dial counterclockwise"
 msgstr "İkinci kadran saat yönünün tersine"
 
-#: src/main.vala:457
+#: src/main.vala:572
 msgid "Wheel up"
 msgstr "Tekerlek yukarı"
 
-#: src/main.vala:458
+#: src/main.vala:573
 msgid "Wheel down"
 msgstr "Tekerlek aşağı"
 
-#: src/main.vala:459
+#: src/main.vala:574
 msgid "Second wheel up"
 msgstr "İkinci tekerlek yukarı"
 
-#: src/main.vala:460
+#: src/main.vala:575
 msgid "Second wheel down"
 msgstr "İkinci tekerlek aşağı"
 
-#: src/main.vala:473
+#: src/main.vala:588
 msgid "Application / driver default"
 msgstr "Uygulama / sürücü varsayılanı"
 
-#: src/main.vala:473
+#: src/main.vala:588
 msgid "Do nothing"
 msgstr "Hiçbir şey yapma"
 
-#: src/main.vala:473
+#: src/main.vala:588
 msgid "Left click"
 msgstr "Sol tıklama"
 
-#: src/main.vala:473
+#: src/main.vala:588
 msgid "Middle click"
 msgstr "Orta tıklama"
 
-#: src/main.vala:473
+#: src/main.vala:588
 msgid "Right click"
 msgstr "Sağ tıklama"
 
-#: src/main.vala:474
+#: src/main.vala:589
 msgid "Send keyboard keys"
 msgstr "Klavye tuşlarını gönder"
 
-#: src/main.vala:474
+#: src/main.vala:589
 msgid "Send mouse button"
 msgstr "Fare tuşunu gönder"
 
-#: src/main.vala:474
+#: src/main.vala:589
 msgid "Pan with pen"
 msgstr "Kalemle kaydır"
 
-#: src/main.vala:474
+#: src/main.vala:589
 msgid "Toggle pen/mouse mode"
 msgstr "Kalem/fare biçimini değiştir"
 
-#: src/main.vala:474
+#: src/main.vala:589
 msgid "Custom driver action"
 msgstr "Özel sürücü eylemi"
 
-#: src/main.vala:477
+#: src/main.vala:592
 msgid "Action"
 msgstr "Eylem"
 
-#: src/main.vala:479
+#: src/main.vala:594
 msgid "Example: ctrl z, 8, or key +ctrl z -ctrl"
 msgstr "Örnek: ctrl z, 8 veya key +ctrl z -ctrl"
 
-#: src/main.vala:480
+#: src/main.vala:595
 msgid "Keys, button, or action"
 msgstr "Tuşlar, fare tuşu veya eylem"
 
-#: src/main.vala:481
+#: src/main.vala:596
 msgid "Record Shortcut"
 msgstr "Kısayolu Kaydet"
 
-#: src/main.vala:484
+#: src/main.vala:599
 msgid "Press shortcut now…"
 msgstr "Şimdi kısayola basın…"
 
-#: src/main.vala:501
-msgid "For keys, enter X11 key names separated by spaces. Custom actions use xsetwacom syntax."
-msgstr "Tuşlar için X11 tuş adlarını boşlukla ayırarak girin. Özel eylemler için xsetwacom sözdizimini kullanınız."
+#: src/main.vala:616
+msgid ""
+"For keys, enter X11 key names separated by spaces. Custom actions use "
+"xsetwacom syntax."
+msgstr ""
+"Tuşlar için X11 tuş adlarını boşlukla ayırarak girin. Özel eylemler için "
+"xsetwacom sözdizimini kullanınız."
 
-#: src/main.vala:521
+#: src/main.vala:636
 msgid "Tablet pad"
 msgstr "Tablet tuş takımı"
 
-#: src/main.vala:521
-msgid "Assign actions to ExpressKeys, rings, dials, strips, and wheels supported by this pad."
-msgstr "Tuş takımının desteklediği ExpressKeys tuşlarına, halkalara, kadranlara, şeritlere ve tekerleklere eylem atayın."
+#: src/main.vala:636
+msgid ""
+"Assign actions to ExpressKeys, rings, dials, strips, and wheels supported by "
+"this pad."
+msgstr ""
+"Tuş takımının desteklediği ExpressKeys tuşlarına, halkalara, kadranlara, "
+"şeritlere ve tekerleklere eylem atayın."
 
-#: src/main.vala:522
+#: src/main.vala:637
 msgid "ExpressKeys"
 msgstr "ExpressKeys tuşları"
 
-#: src/main.vala:528
+#: src/main.vala:643
 msgid "No configurable buttons found"
 msgstr "Yapılandırılabilir tuş bulunamadı"
 
-#: src/main.vala:529
+#: src/main.vala:644
 msgid "Rings, dials, strips, and wheels"
 msgstr "Halkalar, kadranlar, şeritler ve tekerlekler"
 
-#: src/main.vala:536
+#: src/main.vala:651
 msgid "No configurable ring or wheel found"
 msgstr "Yapılandırılabilir halka veya tekerlek bulunamadı"
 
-#: src/main.vala:541
+#: src/main.vala:656
 msgid "Touch and gesture settings exposed by the installed Wacom X11 driver."
 msgstr "Kurulu Wacom X11 sürücüsünün sunduğu dokunma ve hareket ayarları."
 
-#: src/main.vala:542
+#: src/main.vala:657
 msgid "Touch input"
 msgstr "Dokunma girdisi"
 
-#: src/main.vala:543
+#: src/main.vala:658
 msgid "Enable touch"
 msgstr "Dokunmayı etkinleştir"
 
-#: src/main.vala:544
+#: src/main.vala:659
 msgid "Move cursor"
 msgstr "İmleci hareket ettir"
 
-#: src/main.vala:545
+#: src/main.vala:660
 msgid "Gestures"
 msgstr "Hareketler"
 
-#: src/main.vala:546
+#: src/main.vala:661
 msgid "Enable gestures"
 msgstr "Hareketleri etkinleştir"
 
-#: src/main.vala:547
+#: src/main.vala:662
 msgid "Scroll distance"
 msgstr "Kaydırma mesafesi"
 
-#: src/main.vala:548
+#: src/main.vala:663
 msgid "Zoom distance"
 msgstr "Yakınlaştırma mesafesi"
 
-#: src/main.vala:549
+#: src/main.vala:664
 msgid "Tap time (ms)"
 msgstr "Dokunma süresi (ms)"
 
-#: src/main.vala:550
+#: src/main.vala:665
 msgid "Invert scrolling"
 msgstr "Kaydırma yönünü ters çevir"
 
-#: src/main.vala:563
+#: src/main.vala:678
 msgid "Save and apply named sets of driver settings for the selected tool."
-msgstr "Seçili aracın sürücü ayarları için adlandırılmış kümeleri kaydedin ve uygulayın."
+msgstr ""
+"Seçili aracın sürücü ayarları için adlandırılmış kümeleri kaydedin ve "
+"uygulayın."
 
-#: src/main.vala:564
+#: src/main.vala:679
 msgid "Saved profiles"
 msgstr "Kaydedilmiş profiller"
 
-#: src/main.vala:574
+#: src/main.vala:689
 msgid "Profile"
 msgstr "Profil"
 
-#: src/main.vala:576
+#: src/main.vala:691
 msgid "Save Current Settings…"
 msgstr "Geçerli Ayarları Kaydet…"
 
-#: src/main.vala:579
+#: src/main.vala:694
 msgid "Apply Profile"
 msgstr "Profili Uygula"
 
-#: src/main.vala:582
+#: src/main.vala:697
 msgid "Delete Profile"
 msgstr "Profili Sil"
 
-#: src/main.vala:602
+#: src/main.vala:717
 msgid "Save Profile"
 msgstr "Profili Kaydet"
 
-#: src/main.vala:604
+#: src/main.vala:719
 msgid "_Save"
 msgstr "_Kaydet"
 
-#: src/main.vala:606
+#: src/main.vala:721
 msgid "Profile name"
 msgstr "Profil adı"
 
-#: src/main.vala:675
+#: src/main.vala:790
 msgid "Reset the selected tool's active area and button mappings?"
 msgstr "Seçili aracın etkin alanı ve tuş eşlemeleri sıfırlansın mı?"
 
-#: src/main.vala:687
+#: src/main.vala:802
 msgid "Tablet Tester"
 msgstr "Tablet Sınayıcı"
 
-#: src/main.vala:688
+#: src/main.vala:803
 msgid "_Close"
 msgstr "_Kapat"
 
-#: src/main.vala:691
+#: src/main.vala:806
 msgid "Draw here to test pointer motion and button events."
 msgstr "İmleç hareketini ve tuş olaylarını sınamak için burada çizim yapın."
 
-#: src/main.vala:720
+#: src/main.vala:835
 msgid "Clear"
 msgstr "Temizle"
+
+#: src/area-selector.vala:57
+msgid "Drag to move"
+msgstr "Taşımak için sürükleyin"
+
+#: src/area-selector.vala:58
+msgid "Drag to resize"
+msgstr "Yeniden boyutlandırmak için sürükleyin"
 
 #: src/wacom-client.vala:30
 msgid "xsetwacom failed"
