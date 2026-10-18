@@ -1,0 +1,642 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the mate-wacom package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: mate-wacom\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-18 09:09-0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: src/main.vala:17
+msgid "Graphics Tablet"
+msgstr ""
+
+#: src/main.vala:25
+msgid "Tablet device"
+msgstr ""
+
+#: src/main.vala:29
+msgid "Refresh connected devices"
+msgstr ""
+
+#: src/main.vala:59
+msgid "_File"
+msgstr ""
+
+#: src/main.vala:62
+msgid "_Refresh Devices"
+msgstr ""
+
+#: src/main.vala:63
+msgid "_Quit"
+msgstr ""
+
+#: src/main.vala:65
+msgid "_Tools"
+msgstr ""
+
+#: src/main.vala:68
+msgid "_Test Tablet…"
+msgstr ""
+
+#: src/main.vala:69
+msgid "_Reset Current Tool…"
+msgstr ""
+
+#: src/main.vala:71
+msgid "_Help"
+msgstr ""
+
+#: src/main.vala:74
+msgid "_About"
+msgstr ""
+
+#: src/main.vala:78
+msgid "MATE Graphics Tablet"
+msgstr ""
+
+#: src/main.vala:79
+msgid "Configure Wacom X11 driver settings."
+msgstr ""
+
+#: src/main.vala:136
+msgid "Stylus"
+msgstr ""
+
+#: src/main.vala:137
+msgid "Eraser"
+msgstr ""
+
+#: src/main.vala:138
+msgid "Cursor"
+msgstr ""
+
+#: src/main.vala:139 src/main.vala:189
+msgid "Pad"
+msgstr ""
+
+#: src/main.vala:140 src/main.vala:190 src/main.vala:541
+msgid "Touch"
+msgstr ""
+
+#: src/main.vala:177
+msgid ""
+"No Wacom X11 tablet was detected. Connect a tablet and choose File → Refresh "
+"Devices."
+msgstr ""
+
+#: src/main.vala:178
+msgid "No tablet detected"
+msgstr ""
+
+#: src/main.vala:178
+msgid ""
+"The Wacom X11 driver must expose the device to xsetwacom. This dialog works "
+"in an X11 session."
+msgstr ""
+
+#: src/main.vala:179
+msgid "Refresh Devices"
+msgstr ""
+
+#: src/main.vala:182
+msgid "Tablet"
+msgstr ""
+
+#: src/main.vala:184
+#, c-format
+msgid "Changes apply immediately to the selected %s tool."
+msgstr ""
+
+#: src/main.vala:185
+msgid "Overview"
+msgstr ""
+
+#: src/main.vala:186
+msgid "Mapping"
+msgstr ""
+
+#: src/main.vala:188
+msgid "Pen"
+msgstr ""
+
+#: src/main.vala:191 src/main.vala:563
+msgid "Profiles"
+msgstr ""
+
+#: src/main.vala:197
+msgid "Tablet overview"
+msgstr ""
+
+#: src/main.vala:197
+msgid ""
+"Choose a device above to configure its individual pen, eraser, pad, or touch "
+"tool."
+msgstr ""
+
+#: src/main.vala:198
+msgid "Connected tools"
+msgstr ""
+
+#: src/main.vala:207
+msgid "Test Tablet…"
+msgstr ""
+
+#: src/main.vala:256
+msgid "Screen and tablet mapping"
+msgstr ""
+
+#: src/main.vala:256
+msgid ""
+"Set tracking, screen output, orientation, and the active area of this tool."
+msgstr ""
+
+#: src/main.vala:257
+msgid "Tracking"
+msgstr ""
+
+#: src/main.vala:258 src/main.vala:544
+msgid "Tracking mode"
+msgstr ""
+
+#: src/main.vala:258
+msgid "Pen (absolute)"
+msgstr ""
+
+#: src/main.vala:258
+msgid "Mouse (relative)"
+msgstr ""
+
+#: src/main.vala:259
+msgid "Orientation"
+msgstr ""
+
+#: src/main.vala:260
+msgid "Normal"
+msgstr ""
+
+#: src/main.vala:260
+msgid "Clockwise"
+msgstr ""
+
+#: src/main.vala:260
+msgid "Upside down (left-handed)"
+msgstr ""
+
+#: src/main.vala:260
+msgid "Counterclockwise"
+msgstr ""
+
+#: src/main.vala:262
+msgid "Display"
+msgstr ""
+
+#: src/main.vala:264
+msgid "Entire desktop"
+msgstr ""
+
+#: src/main.vala:266
+#, c-format
+msgid "Custom: %s"
+msgstr ""
+
+#: src/main.vala:273 src/main.vala:544
+msgid "Map to screen"
+msgstr ""
+
+#: src/main.vala:273
+msgid "Applies to the current X11 display layout."
+msgstr ""
+
+#: src/main.vala:274
+msgid ""
+"Screen mappings are applied once. Reapply after changing the display layout."
+msgstr ""
+
+#: src/main.vala:289
+msgid "Screen rectangle (W × H + X + Y)"
+msgstr ""
+
+#: src/main.vala:290
+msgid "Maps to a custom X11 screen rectangle in pixels."
+msgstr ""
+
+#: src/main.vala:291
+msgid "Map to Rectangle"
+msgstr ""
+
+#: src/main.vala:299
+msgid "Active tablet area"
+msgstr ""
+
+#: src/main.vala:302
+msgid "Left"
+msgstr ""
+
+#: src/main.vala:302
+msgid "Top"
+msgstr ""
+
+#: src/main.vala:302
+msgid "Right"
+msgstr ""
+
+#: src/main.vala:302
+msgid "Bottom"
+msgstr ""
+
+#: src/main.vala:310
+msgid "Apply Area"
+msgstr ""
+
+#: src/main.vala:313
+msgid "Right and bottom must be greater than left and top."
+msgstr ""
+
+#: src/main.vala:320
+msgid "Use Full Tablet"
+msgstr ""
+
+#: src/main.vala:323
+msgid "Fit Area to Screen"
+msgstr ""
+
+#: src/main.vala:324
+msgid "Crop the current tablet area to the selected screen's aspect ratio."
+msgstr ""
+
+#: src/main.vala:328
+msgid "Could not read the selected screen size."
+msgstr ""
+
+#: src/main.vala:333
+msgid "Set a valid tablet area first."
+msgstr ""
+
+#: src/main.vala:355
+msgid "Pen and eraser"
+msgstr ""
+
+#: src/main.vala:355
+msgid ""
+"Pressure, side buttons, and filtering are configured for the selected tool."
+msgstr ""
+
+#: src/main.vala:356
+msgid "Pressure"
+msgstr ""
+
+#: src/main.vala:357
+msgid "Tip threshold"
+msgstr ""
+
+#: src/main.vala:358
+msgid "Minimum pressure that produces a tip click (driver scale 0–2047)."
+msgstr ""
+
+#: src/main.vala:359
+msgid "Pressure recalibration"
+msgstr ""
+
+#: src/main.vala:360
+msgid "Edit Pressure Curve…"
+msgstr ""
+
+#: src/main.vala:362
+msgid "Pressure curve"
+msgstr ""
+
+#: src/main.vala:365
+msgid "Stylus buttons"
+msgstr ""
+
+#: src/main.vala:366 src/main.vala:526
+#, c-format
+msgid "Button %d"
+msgstr ""
+
+#: src/main.vala:367
+msgid "Buttons require tablet contact"
+msgstr ""
+
+#: src/main.vala:369
+msgid "Motion filtering"
+msgstr ""
+
+#: src/main.vala:370
+msgid "Raw sample count"
+msgstr ""
+
+#: src/main.vala:371
+msgid "Suppress distance"
+msgstr ""
+
+#: src/main.vala:372
+msgid "Pan scroll threshold"
+msgstr ""
+
+#: src/main.vala:374
+msgid "Cursor proximity"
+msgstr ""
+
+#: src/main.vala:375
+msgid "Tool identity"
+msgstr ""
+
+#: src/main.vala:379
+msgid "Bind to tool serial"
+msgstr ""
+
+#: src/main.vala:379
+msgid "0 accepts any tool of this type."
+msgstr ""
+
+#: src/main.vala:380
+msgid "Apply Serial"
+msgstr ""
+
+#: src/main.vala:384
+msgid "Enter a numeric serial number or 0."
+msgstr ""
+
+#: src/main.vala:393
+msgid "Pressure Curve"
+msgstr ""
+
+#: src/main.vala:394 src/main.vala:467 src/main.vala:603
+msgid "_Cancel"
+msgstr ""
+
+#: src/main.vala:395 src/main.vala:468
+msgid "_Apply"
+msgstr ""
+
+#: src/main.vala:399
+msgid "Control point 1 X"
+msgstr ""
+
+#: src/main.vala:399
+msgid "Control point 1 Y"
+msgstr ""
+
+#: src/main.vala:399
+msgid "Control point 2 X"
+msgstr ""
+
+#: src/main.vala:399
+msgid "Control point 2 Y"
+msgstr ""
+
+#: src/main.vala:441
+msgid "Choose action…"
+msgstr ""
+
+#: src/main.vala:449
+msgid "Ring up"
+msgstr ""
+
+#: src/main.vala:450
+msgid "Ring down"
+msgstr ""
+
+#: src/main.vala:451
+msgid "Second ring up"
+msgstr ""
+
+#: src/main.vala:452
+msgid "Second ring down"
+msgstr ""
+
+#: src/main.vala:453
+msgid "Dial clockwise"
+msgstr ""
+
+#: src/main.vala:454
+msgid "Dial counterclockwise"
+msgstr ""
+
+#: src/main.vala:455
+msgid "Second dial clockwise"
+msgstr ""
+
+#: src/main.vala:456
+msgid "Second dial counterclockwise"
+msgstr ""
+
+#: src/main.vala:457
+msgid "Wheel up"
+msgstr ""
+
+#: src/main.vala:458
+msgid "Wheel down"
+msgstr ""
+
+#: src/main.vala:459
+msgid "Second wheel up"
+msgstr ""
+
+#: src/main.vala:460
+msgid "Second wheel down"
+msgstr ""
+
+#: src/main.vala:473
+msgid "Application / driver default"
+msgstr ""
+
+#: src/main.vala:473
+msgid "Do nothing"
+msgstr ""
+
+#: src/main.vala:473
+msgid "Left click"
+msgstr ""
+
+#: src/main.vala:473
+msgid "Middle click"
+msgstr ""
+
+#: src/main.vala:473
+msgid "Right click"
+msgstr ""
+
+#: src/main.vala:474
+msgid "Send keyboard keys"
+msgstr ""
+
+#: src/main.vala:474
+msgid "Send mouse button"
+msgstr ""
+
+#: src/main.vala:474
+msgid "Pan with pen"
+msgstr ""
+
+#: src/main.vala:474
+msgid "Toggle pen/mouse mode"
+msgstr ""
+
+#: src/main.vala:474
+msgid "Custom driver action"
+msgstr ""
+
+#: src/main.vala:477
+msgid "Action"
+msgstr ""
+
+#: src/main.vala:479
+msgid "Example: ctrl z, 8, or key +ctrl z -ctrl"
+msgstr ""
+
+#: src/main.vala:480
+msgid "Keys, button, or action"
+msgstr ""
+
+#: src/main.vala:481
+msgid "Record Shortcut"
+msgstr ""
+
+#: src/main.vala:484
+msgid "Press shortcut now…"
+msgstr ""
+
+#: src/main.vala:501
+msgid ""
+"For keys, enter X11 key names separated by spaces. Custom actions use "
+"xsetwacom syntax."
+msgstr ""
+
+#: src/main.vala:521
+msgid "Tablet pad"
+msgstr ""
+
+#: src/main.vala:521
+msgid ""
+"Assign actions to ExpressKeys, rings, dials, strips, and wheels supported by "
+"this pad."
+msgstr ""
+
+#: src/main.vala:522
+msgid "ExpressKeys"
+msgstr ""
+
+#: src/main.vala:528
+msgid "No configurable buttons found"
+msgstr ""
+
+#: src/main.vala:529
+msgid "Rings, dials, strips, and wheels"
+msgstr ""
+
+#: src/main.vala:536
+msgid "No configurable ring or wheel found"
+msgstr ""
+
+#: src/main.vala:541
+msgid "Touch and gesture settings exposed by the installed Wacom X11 driver."
+msgstr ""
+
+#: src/main.vala:542
+msgid "Touch input"
+msgstr ""
+
+#: src/main.vala:543
+msgid "Enable touch"
+msgstr ""
+
+#: src/main.vala:544
+msgid "Move cursor"
+msgstr ""
+
+#: src/main.vala:545
+msgid "Gestures"
+msgstr ""
+
+#: src/main.vala:546
+msgid "Enable gestures"
+msgstr ""
+
+#: src/main.vala:547
+msgid "Scroll distance"
+msgstr ""
+
+#: src/main.vala:548
+msgid "Zoom distance"
+msgstr ""
+
+#: src/main.vala:549
+msgid "Tap time (ms)"
+msgstr ""
+
+#: src/main.vala:550
+msgid "Invert scrolling"
+msgstr ""
+
+#: src/main.vala:563
+msgid "Save and apply named sets of driver settings for the selected tool."
+msgstr ""
+
+#: src/main.vala:564
+msgid "Saved profiles"
+msgstr ""
+
+#: src/main.vala:574
+msgid "Profile"
+msgstr ""
+
+#: src/main.vala:576
+msgid "Save Current Settings…"
+msgstr ""
+
+#: src/main.vala:579
+msgid "Apply Profile"
+msgstr ""
+
+#: src/main.vala:582
+msgid "Delete Profile"
+msgstr ""
+
+#: src/main.vala:602
+msgid "Save Profile"
+msgstr ""
+
+#: src/main.vala:604
+msgid "_Save"
+msgstr ""
+
+#: src/main.vala:606
+msgid "Profile name"
+msgstr ""
+
+#: src/main.vala:675
+msgid "Reset the selected tool's active area and button mappings?"
+msgstr ""
+
+#: src/main.vala:687
+msgid "Tablet Tester"
+msgstr ""
+
+#: src/main.vala:688
+msgid "_Close"
+msgstr ""
+
+#: src/main.vala:691
+msgid "Draw here to test pointer motion and button events."
+msgstr ""
+
+#: src/main.vala:720
+msgid "Clear"
+msgstr ""
+
+#: src/wacom-client.vala:30
+msgid "xsetwacom failed"
+msgstr ""

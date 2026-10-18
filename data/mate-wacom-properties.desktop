@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=Application
+Name=Graphics Tablet
+Name[tr]=Çizim Tableti
+Comment=Configure Wacom tablets and pens
+Comment[tr]=Wacom tabletleri ve kalemlerini yapılandırın
+Exec=mate-wacom-properties
+Icon=input-tablet
+Terminal=false
+Categories=Settings;HardwareSettings;GTK;
+OnlyShowIn=MATE;
+Keywords=Wacom;Tablet;Stylus;Pen;Drawing;
+Keywords[tr]=Wacom;Tablet;Kalem;Çizim;
