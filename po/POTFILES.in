@@ -1,2 +1,3 @@
 src/main.vala
+src/area-selector.vala
 src/wacom-client.vala

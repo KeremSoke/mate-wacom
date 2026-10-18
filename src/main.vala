@@ -3,6 +3,7 @@ using Gtk;
 
 public class WacomWindow : Gtk.ApplicationWindow {
     private delegate void MenuAction ();
+    private delegate void MappingAction (string target);
     private WacomClient client = new WacomClient ();
     private WacomDevice[] devices = {};
     private WacomDevice? selected;
@@ -12,6 +13,7 @@ public class WacomWindow : Gtk.ApplicationWindow {
     private Gtk.ComboBoxText profile_combo = new Gtk.ComboBoxText ();
     private bool refreshing = false;
     private string selected_output = "desktop";
+    private HashTable<string, string> full_areas = new HashTable<string, string> (str_hash, str_equal);
 
     public WacomWindow (Gtk.Application app) {
         Object (application: app, title: _("Graphics Tablet"), default_width: 850,
@@ -256,99 +258,212 @@ public class WacomWindow : Gtk.ApplicationWindow {
         var box = page (_("Screen and tablet mapping"), _("Set tracking, screen output, orientation, and the active area of this tool."));
         var tracking = group (box, _("Tracking"));
         choice (tracking, 0, _("Tracking mode"), "Mode", {"Absolute", "Relative"}, {_("Pen (absolute)"), _("Mouse (relative)")});
-        choice (tracking, 1, _("Orientation"), "Rotate", {"none", "cw", "half", "ccw"},
+        var rotate = choice (tracking, 1, _("Orientation"), "Rotate", {"none", "cw", "half", "ccw"},
                 {_("Normal"), _("Clockwise"), _("Upside down (left-handed)"), _("Counterclockwise")});
 
         var display = group (box, _("Display"));
+        string[] outputs = client.outputs ();
         var output = new Gtk.ComboBoxText ();
-        foreach (string name in client.outputs ()) output.append (name, name == "desktop" ? _("Entire desktop") : name);
-        if (!output.set_active_id (selected_output)) {
-            output.append (selected_output, _("Custom: %s").printf (selected_output));
-            output.set_active_id (selected_output);
-        }
-        output.changed.connect (() => {
-            string? name = output.get_active_id ();
-            if (name != null && client.set_parameter (selected, "MapToOutput", {name})) selected_output = name;
-        });
+        foreach (string name in outputs) output.append (name, name == "desktop" ? _("Entire desktop") : name);
+        bool choosing = false;
+        bool has_custom = false;
+        // Selects an output in the list, adding a custom entry for a rectangle.
+        MenuAction show_output = () => {
+            choosing = true;
+            if (!output.set_active_id (selected_output)) {
+                if (has_custom) output.remove (outputs.length);
+                output.append (selected_output, _("Custom: %s").printf (selected_output));
+                output.set_active_id (selected_output);
+                has_custom = true;
+            }
+            choosing = false;
+        };
+        show_output ();
         row (display, 0, _("Map to screen"), output, _("Applies to the current X11 display layout."));
         var note = new Gtk.Label (_("Screen mappings are applied once. Reapply after changing the display layout."));
         note.xalign = 0;
         note.set_line_wrap (true);
         display.attach (note, 0, 1, 2, 1);
+
+        int desktop_width, desktop_height;
+        if (!client.output_size ("desktop", out desktop_width, out desktop_height)) {
+            desktop_width = 1920; desktop_height = 1080;
+        }
+        var screen = new AreaSelector (360, 200);
+        screen.set_surface (0, 0, desktop_width, desktop_height);
+        foreach (string name in outputs) {
+            int ox, oy, ow, oh;
+            if (name == "desktop") continue;
+            if (client.output_geometry (name, out ox, out oy, out ow, out oh))
+                screen.add_region (ox, oy, ow, oh, name);
+        }
+        screen.changed.connect (() => {
+            screen.caption = "%d×%d+%d+%d".printf ((int) Math.round (screen.area_width), (int) Math.round (screen.area_height),
+                                                    (int) Math.round (screen.area_x), (int) Math.round (screen.area_y));
+        });
+        display.attach (screen, 0, 2, 2, 1);
         var rectangle = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 6);
-        var width = new Gtk.SpinButton.with_range (1, 32768, 1);
-        var height = new Gtk.SpinButton.with_range (1, 32768, 1);
-        var x = new Gtk.SpinButton.with_range (-32768, 32768, 1);
-        var y = new Gtk.SpinButton.with_range (-32768, 32768, 1);
-        width.value = 1920; height.value = 1080;
+        var width = new Gtk.SpinButton.with_range (1, desktop_width, 1);
+        var height = new Gtk.SpinButton.with_range (1, desktop_height, 1);
+        var x = new Gtk.SpinButton.with_range (0, desktop_width - 1, 1);
+        var y = new Gtk.SpinButton.with_range (0, desktop_height - 1, 1);
         Gtk.SpinButton[] rectangle_fields = {width, height, x, y};
         foreach (var field in rectangle_fields) {
             field.set_width_chars (5);
             rectangle.pack_start (field, false, false, 0);
         }
-        row (display, 2, _("Screen rectangle (W × H + X + Y)"), rectangle,
+        row (display, 3, _("Screen rectangle (W × H + X + Y)"), rectangle,
              _("Maps to a custom X11 screen rectangle in pixels."));
+        link_spins (screen, {x, y, width, height}, false);
+        int sx, sy, sw, sh;
+        if (!client.output_geometry (selected_output, out sx, out sy, out sw, out sh)) {
+            sx = 0; sy = 0; sw = desktop_width; sh = desktop_height;
+        }
+        screen.set_area (sx, sy, sw, sh);
         var apply_rectangle = new Gtk.Button.with_label (_("Map to Rectangle"));
-        apply_rectangle.clicked.connect (() => {
-            string geometry = "%dx%d%+d%+d".printf (width.get_value_as_int (), height.get_value_as_int (),
-                                                      x.get_value_as_int (), y.get_value_as_int ());
-            if (client.set_parameter (selected, "MapToOutput", {geometry})) selected_output = geometry;
-        });
-        display.attach (apply_rectangle, 1, 3, 1, 1);
+        display.attach (apply_rectangle, 1, 4, 1, 1);
 
         var area = group (box, _("Active tablet area"));
-        var current = client.read (selected, "Area").split (" ");
+        bool area_supported = client.supports (selected, "Area");
+        var tablet = new AreaSelector (360, 200);
+        tablet.changed.connect (() => {
+            double full_width, full_height;
+            tablet.get_surface_size (out full_width, out full_height);
+            tablet.caption = "%.0f%% × %.0f%%".printf (tablet.area_width * 100 / full_width,
+                                                       tablet.area_height * 100 / full_height);
+        });
+        area.attach (tablet, 0, 0, 2, 1);
+        var keep_ratio = new Gtk.CheckButton.with_label (_("Keep the screen rectangle's aspect ratio"));
+        area.attach (keep_ratio, 1, 1, 1, 1);
         var fields = new Gtk.SpinButton[4];
         string[] labels = {_("Left"), _("Top"), _("Right"), _("Bottom")};
         for (int i = 0; i < 4; i++) {
             fields[i] = new Gtk.SpinButton.with_range (0, 100000, 1);
-            double n = 0;
-            if (i < current.length && double.try_parse (current[i], out n)) fields[i].set_value (n);
-            row (area, i, labels[i], fields[i]);
+            row (area, i + 2, labels[i], fields[i]);
         }
-        var buttons = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 6);
-        var apply = new Gtk.Button.with_label (_("Apply Area"));
-        apply.clicked.connect (() => {
-            if (fields[2].value <= fields[0].value || fields[3].value <= fields[1].value) {
-                show_error (_("Right and bottom must be greater than left and top.")); return;
+        link_spins (tablet, fields, true);
+        // Shows the driver's full and current area; the full one changes with rotation.
+        MenuAction load_tablet = () => {
+            int[] full = tablet_extent ();
+            tablet.set_surface (full[0], full[1], full[2] - full[0], full[3] - full[1]);
+            foreach (var field in fields) field.set_range (0, int.max (full[2], full[3]));
+            var current = client.read (selected, "Area").split (" ");
+            double[] values = {full[0], full[1], full[2], full[3]};
+            for (int i = 0; i < 4 && i < current.length; i++) {
+                double n;
+                if (double.try_parse (current[i], out n)) values[i] = n;
             }
+            tablet.set_area (values[0], values[1], values[2] - values[0], values[3] - values[1]);
+        };
+        load_tablet ();
+
+        MenuAction apply_area = () => {
             string[] coordinates = {};
             foreach (var field in fields) coordinates += "%d".printf (field.get_value_as_int ());
             client.set_parameter (selected, "Area", coordinates);
+        };
+        tablet.committed.connect (() => apply_area ());
+        keep_ratio.toggled.connect (() => {
+            tablet.lock_ratio = keep_ratio.active ? screen.area_width / screen.area_height : 0;
+            if (keep_ratio.active) apply_area ();
         });
+        screen.changed.connect (() => {
+            if (keep_ratio.active) tablet.lock_ratio = screen.area_width / screen.area_height;
+        });
+        // Maps the stylus to a screen rectangle or output and refits a locked tablet area.
+        MappingAction map_to = (target) => {
+            if (!client.set_parameter (selected, "MapToOutput", {target})) return;
+            selected_output = target;
+            show_output ();
+            if (keep_ratio.active) apply_area ();
+        };
+        MenuAction map_rectangle = () => {
+            map_to ("%dx%d+%d+%d".printf (width.get_value_as_int (), height.get_value_as_int (),
+                                          x.get_value_as_int (), y.get_value_as_int ()));
+        };
+        screen.committed.connect (() => map_rectangle ());
+        apply_rectangle.clicked.connect (() => map_rectangle ());
+        output.changed.connect (() => {
+            string? name = output.get_active_id ();
+            if (choosing || name == null) return;
+            int ox, oy, ow, oh;
+            if (client.output_geometry (name, out ox, out oy, out ow, out oh)) screen.set_area (ox, oy, ow, oh);
+            map_to (name);
+        });
+        rotate.changed.connect (() => {
+            full_areas.remove (selected.id);
+            load_tablet ();
+        });
+
+        var buttons = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 6);
+        var apply = new Gtk.Button.with_label (_("Apply Area"));
+        apply.clicked.connect (() => apply_area ());
         buttons.pack_start (apply, false, false, 0);
         var reset = new Gtk.Button.with_label (_("Use Full Tablet"));
-        reset.clicked.connect (() => { if (client.set_parameter (selected, "ResetArea", {})) rebuild_pages (); });
+        reset.clicked.connect (() => {
+            if (!client.set_parameter (selected, "ResetArea", {})) return;
+            keep_ratio.active = false;
+            load_tablet ();
+        });
         buttons.pack_start (reset, false, false, 0);
         var fit = new Gtk.Button.with_label (_("Fit Area to Screen"));
-        fit.tooltip_text = _("Crop the current tablet area to the selected screen's aspect ratio.");
+        fit.tooltip_text = _("Crop the current tablet area to the screen rectangle's aspect ratio, keeping it centered.");
         fit.clicked.connect (() => {
-            int screen_width, screen_height;
-            if (!client.output_size (selected_output, out screen_width, out screen_height)) {
-                show_error (_("Could not read the selected screen size.")); return;
-            }
-            double left = fields[0].value, top = fields[1].value;
-            double right = fields[2].value, bottom = fields[3].value;
-            double tablet_width = right - left, tablet_height = bottom - top;
-            if (tablet_width <= 0 || tablet_height <= 0) { show_error (_("Set a valid tablet area first.")); return; }
-            double screen_ratio = (double) screen_width / screen_height;
+            double left = tablet.area_x, top = tablet.area_y;
+            double tablet_width = tablet.area_width, tablet_height = tablet.area_height;
+            double screen_ratio = screen.area_width / screen.area_height;
             if (tablet_width / tablet_height > screen_ratio) {
                 double new_width = tablet_height * screen_ratio;
                 left += (tablet_width - new_width) / 2.0;
-                right = left + new_width;
+                tablet_width = new_width;
             } else {
                 double new_height = tablet_width / screen_ratio;
                 top += (tablet_height - new_height) / 2.0;
-                bottom = top + new_height;
+                tablet_height = new_height;
             }
-            fields[0].value = Math.round (left); fields[1].value = Math.round (top);
-            fields[2].value = Math.round (right); fields[3].value = Math.round (bottom);
-            apply.clicked ();
+            tablet.set_area (left, top, tablet_width, tablet_height);
+            apply_area ();
         });
         buttons.pack_start (fit, false, false, 0);
-        area.attach (buttons, 1, 4, 1, 1);
-        area.sensitive = client.supports (selected, "Area");
+        area.attach (buttons, 1, 6, 1, 1);
+        area.sensitive = area_supported;
         return box;
+    }
+
+    /* Keeps the fallback spin buttons {x, y, width or right, height or bottom}
+     * and the selector showing the same rectangle. */
+    private void link_spins (AreaSelector selector, Gtk.SpinButton[] fields, bool corners) {
+        // Closures do not keep parameter arrays alive, so hold a copy.
+        Gtk.SpinButton[] spins = fields;
+        bool syncing = false;
+        selector.changed.connect (() => {
+            syncing = true;
+            spins[0].value = Math.round (selector.area_x);
+            spins[1].value = Math.round (selector.area_y);
+            spins[2].value = Math.round (corners ? selector.area_x + selector.area_width : selector.area_width);
+            spins[3].value = Math.round (corners ? selector.area_y + selector.area_height : selector.area_height);
+            syncing = false;
+        });
+        foreach (var spin in spins) {
+            spin.value_changed.connect (() => {
+                if (syncing) return;
+                double left = spins[0].value, top = spins[1].value;
+                selector.set_area (left, top, corners ? spins[2].value - left : spins[2].value,
+                                   corners ? spins[3].value - top : spins[3].value);
+            });
+        }
+    }
+
+    private int[] tablet_extent () {
+        string? cached = full_areas.lookup (selected.id);
+        int[] area = {};
+        if (cached != null) {
+            foreach (string part in cached.split (" ")) area += int.parse (part);
+            return area;
+        }
+        if (!client.full_area (selected, out area)) return {0, 0, 16000, 10000};
+        full_areas.insert (selected.id, "%d %d %d %d".printf (area[0], area[1], area[2], area[3]));
+        return area;
     }
 
     private Gtk.Widget make_pen () {

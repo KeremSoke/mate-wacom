@@ -97,30 +97,58 @@ public class WacomClient : Object {
     }
 
     public bool output_size (string name, out int width, out int height) {
-        width = 0; height = 0;
+        int x, y;
+        return output_geometry (name, out x, out y, out width, out height);
+    }
+
+    /* Resolves "desktop", an output name, or a WxH+X+Y string to a rectangle
+     * on the X screen. */
+    public bool output_geometry (string name, out int x, out int y, out int width, out int height) {
+        x = 0; y = 0; width = 0; height = 0;
         string output;
-        if (name != "desktop") {
-            try {
-                var geometry = new Regex ("^([0-9]+)x([0-9]+)[+-]");
-                MatchInfo match;
-                if (geometry.match (name, 0, out match)) {
-                    int.try_parse (match.fetch (1), out width);
-                    int.try_parse (match.fetch (2), out height);
-                    return width > 0 && height > 0;
-                }
-            } catch (RegexError e) { }
-        }
-        if (!run ({"xrandr", "--query", null}, out output, false)) return false;
         try {
+            MatchInfo match;
+            var geometry = new Regex ("^([0-9]+)x([0-9]+)([+-][0-9]+)([+-][0-9]+)$");
+            if (geometry.match (name, 0, out match)) {
+                int.try_parse (match.fetch (1), out width);
+                int.try_parse (match.fetch (2), out height);
+                int.try_parse (match.fetch (3), out x);
+                int.try_parse (match.fetch (4), out y);
+                return width > 0 && height > 0;
+            }
+            if (!run ({"xrandr", "--query", null}, out output, false)) return false;
             string expression = name == "desktop"
                 ? "current ([0-9]+) x ([0-9]+)"
-                : "^" + Regex.escape_string (name) + " connected(?: primary)? ([0-9]+)x([0-9]+)";
-            var re = new Regex (expression, RegexCompileFlags.MULTILINE);
-            MatchInfo match;
-            if (!re.match (output, 0, out match)) return false;
+                : "^" + Regex.escape_string (name) + " connected(?: primary)? ([0-9]+)x([0-9]+)\\+([0-9]+)\\+([0-9]+)";
+            if (!new Regex (expression, RegexCompileFlags.MULTILINE).match (output, 0, out match)) return false;
             int.try_parse (match.fetch (1), out width);
             int.try_parse (match.fetch (2), out height);
+            if (name != "desktop") {
+                int.try_parse (match.fetch (3), out x);
+                int.try_parse (match.fetch (4), out y);
+            }
             return width > 0 && height > 0;
         } catch (RegexError e) { return false; }
+    }
+
+    /* The driver only reports the current area, so read the full one by
+     * resetting it and then restore what was set. */
+    public bool full_area (WacomDevice device, out int[] area) {
+        area = {};
+        string current = read (device, "Area");
+        if (current.length == 0 || !set_parameter (device, "ResetArea", {})) return false;
+        string[] full = read (device, "Area").split (" ");
+        string[] restore = {};
+        foreach (string part in current.split (" "))
+            if (part.length > 0) restore += part;
+        set_parameter (device, "Area", restore);
+        int[] values = {};
+        foreach (string part in full) {
+            int n;
+            if (part.length == 0) continue;
+            if (int.try_parse (part, out n)) values += n;
+        }
+        area = values;
+        return area.length == 4 && area[2] > area[0] && area[3] > area[1];
     }
 }

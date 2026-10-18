@@ -11,7 +11,7 @@ gio = dependency('gio-2.0')
 math = meson.get_compiler('c').find_library('m', required: true)
 
 executable('mate-wacom-properties',
-  ['src/main.vala', 'src/wacom-client.vala', config_vala],
+  ['src/main.vala', 'src/area-selector.vala', 'src/wacom-client.vala', config_vala],
   dependencies: [gtk, gio, math],
   c_args: ['-DGETTEXT_PACKAGE="' + gettext_domain + '"'],
   install: true)
