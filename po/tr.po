@@ -239,7 +239,7 @@ msgstr "Ekran alanı (gen. × yük. + X + Y)"
 msgid "Maps to a custom X11 screen rectangle in pixels."
 msgstr ""
 "Tablet alanını X11 ekranında piksel olarak belirlediğiniz bir bölgeyle "
-"eşlertirir."
+"eşleştirir."
 
 #: src/main.vala:323
 msgid "Map to Rectangle"
@@ -251,7 +251,7 @@ msgstr "Etkin tablet alanı"
 
 #: src/main.vala:336
 msgid "Keep the screen rectangle's aspect ratio"
-msgstr "Ekrandaki seçili dikdörtgeninin en boy oranını koru"
+msgstr "Ekrandaki seçili dikdörtgenin en boy oranını koru"
 
 #: src/main.vala:339
 msgid "Left"
@@ -286,7 +286,7 @@ msgid ""
 "Crop the current tablet area to the screen rectangle's aspect ratio, keeping "
 "it centered."
 msgstr ""
-"Geçerli tablet alanını ekrandaki seçili dikdörtgeninin en boy oranına göre "
+"Geçerli tablet alanını ekrandaki seçili dikdörtgenin en boy oranına göre "
 "kırpın ve ortada tutun."
 
 #: src/main.vala:470
