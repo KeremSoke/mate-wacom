@@ -1,4 +1,4 @@
-project('mate-wacom', 'vala', version: '0.1.0', default_options: ['warning_level=2'])
+project('mate-wacom', 'vala', version: '1.0.0', default_options: ['warning_level=2'])
 
 gettext_domain = 'mate-wacom'
 locale_dir = join_paths(get_option('prefix'), get_option('localedir'))
